@@ -1,0 +1,78 @@
+#!/bin/bash
+
+grh~ () { git reset HEAD~$1 }
+
+gfs () {
+  # Check first if branch type can be inferred, from current branch
+  curr=`git rev-parse --abbrev-ref HEAD`
+  if [ "$curr" = "develop" ]; then
+    tybr=feature
+  elif [ "$curr" = "master" ]; then
+    tybr=hotfix
+  else
+    # Ask for branch type
+    printf 'Please enter branch type [feature/hotfix]: '
+    read -r tybr
+  fi
+
+  # Allow input to be shortened version from 'feature'
+  if [ "$tybr" = "f" ]; then
+    tybr=feature
+  fi
+
+  # Allow input to be shortened version from 'hotfix'
+  if [ "$tybr" = "h" ]; then
+    tybr=hotfix
+  fi
+
+  # Check first if branch type is recognized
+  if [ "$tybr" != "feature" -a "$tybr" != "hotfix" ]; then
+    echo "** Incorrect branch type for git flow (feature / hotfix)."
+    return 1
+  fi
+
+  if [ $1 ]; then
+    br=$1
+  else
+    # Ask for feature/hotfix name
+    printf "Please enter $tybr name: "
+    read -r br
+  fi
+
+  echo "=> Git flow $tybr start $br.\n"
+  git flow $tybr start $br
+}
+
+gfp () { git-flow-branching publish; }
+gff () { git-flow-branching finish; }
+
+git-flow-branching () {
+  git=`git rev-parse --abbrev-ref HEAD`
+  tybr="$( cut -d '/' -f 1 <<< "$git" )"
+  br="$( cut -d '/' -f 2 <<< "$git" )"
+  if [ "$tybr" = "feature" -o "$tybr" = "hotfix" ]; then
+    git flow $tybr $1 $br
+  else
+    echo "** Incorrect branch for git flow."
+  fi
+}
+
+kill_system () {
+  trap '' INT
+  echo "Deleting system"
+  x=30
+  for i in `seq 1 30`; do
+    printf "."
+    sleep 1
+  done
+  echo ""
+  for i in `seq 1 30`; do
+    echo "~"
+  done
+  echo "Bye-bye"
+}
+
+# RUN on start
+# if curl --output /dev/null --silent --head --fail http://proverbs-app.antjan.us; then
+#   curl -w '\n' http://proverbs-app.antjan.us/random
+# fi

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Aliases
+alias subl="'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'"
+alias psql="'/Applications/Postgres.app/Contents/Versions/9.4/bin/psql'"
+
+alias projects="cd ~/Documents/Projects"
+
+alias start-ftp="sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist; sudo launchctl start com.apple.ftpd"
+alias stop-ftp="sudo launchctl stop com.apple.ftpd; sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist"
+
+alias start-nginx="sudo nginx"
+alias stop-nginx="sudo nginx -s stop"
+
+alias rserver="rails server"
+alias rconsole="rails console"
+
+alias rchecks="brakeman -c .brakeman.yml; rubocop; rspec"
+
+alias rdbmig="rake db:migrate"
+alias rdbroll="rake db:rollback"
+alias rdbmigredo="rake db:migrate:redo"
+
+alias routes="rake routes"
+
+# Kill rails processes
+alias killall-rails="pgrep ruby bin/rails | xargs kill | echo '=> Rails'\'' processes killed.'"
+
+# Pipe my public key to my clipboard.
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+
+# GIT
+alias gdc='gdca'
