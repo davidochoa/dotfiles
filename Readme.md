@@ -17,16 +17,19 @@ setup/init
 ### 3. What to remember when Backing-up?
 - ```~/.extras```
 - ```~/.gitconfig.user```
+- ```~/.ssh```
+- ```~/.ssl```
 - ```~/Library/Fonts/``` (new fonts)
 - ```~/Library/Preferences/``` (new or changes)
 - ```~/Library/Application\ Support/Alfred\ 2/Alfred.alfredpreferences```
+- ```~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User```
 - ```/Library/Preferences/SystemConfiguration/SystemConfiguration``` (any necessary files)
-- ```/Library/Preferences/com.apple.TimeMachine.plist```
-- ```/usr/local/etc/nginx/nginx.conf```
-- ```/Library/LaunchDaemons/homebrew.mxcl.nginx.plist```
+- ```/Library/Preferences/``` (any necessary files)
 - Env file from any project that you want to keep
 - DB dump from any project that you want to keep
 
 
-#### Other useful
-```sudo -s launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.nginx.plist```
+#### Other useful (to not forget)
+- ```/usr/local/etc/nginx/nginx.conf```
+- ```/Library/LaunchDaemons/homebrew.mxcl.nginx.plist```
+- ```sudo -s launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.nginx.plist```
