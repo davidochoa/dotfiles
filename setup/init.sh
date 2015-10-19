@@ -44,38 +44,37 @@ source setup/brew-cask.sh
 symlink "$HOME" "$DOTFILES_ROOT/bla" '.*'
 
 ### preferences
-symlink "$HOME/Library/" "$DOTFILES_ROOT/sys/user-preferences" '*'
+symlink "$HOME/Library/Preferences" "$DOTFILES_ROOT/sys/user-preferences" '*'
+
+### Sublime Text 2
+symlink "$HOME/Library/Application\ Support/Sublime\ Text\ 2/Packages" "$DOTFILES_ROOT/application-support/Sublime\ Text\ 2/Packages" '*'
 
 ###############
 ### Copying ###
 
 ### fonts
 cp ~/dotfiles/fonts/* ~/Library/Fonts/
-success 'copied Fonts'
+success '\033[0;33mcopied\033[0m Fonts'
 
 ### zsh theme
 cp ~/dotfiles/zsh/themes/david-custom.zsh-theme ~/.oh-my-zsh/themes/david-custom.zsh-theme
-success 'copied zsh theme'
+success '\033[0;33mcopied\033[0m zsh theme'
 
 ### Applications
 cp ~/dotfiles/apps/* /Applications/
-success 'copied Applications'
+success '\033[0;33mcopied\033[0m Applications'
 
 ### System Preferences
 cp ~/dotfiles/sys/system-preferences/* /Library/Preferences/
-success 'copied System Preferences'
+success '\033[0;33mcopied\033[0m System Preferences'
 
 ### System Configurations
 cp ~/dotfiles/sys/system-configurations/* /Library/Preferences/SystemConfiguration/
-success 'copied System Configurations'
+success '\033[0;33mcopied\033[0m System Configurations'
 
 ### Alfred 2
 cp ~/dotfiles/sys/application-support/Alfred\ 2/Alfred.alfredpreferences ~/Library/Application\ Support/Alfred\ 2/Alfred.alfredpreferences
-success 'copied Alfred 2 preferences'
-
-### Sublime Text 2
-cp ~/dotfiles/sys/application-support/Sublime\ Text\ 2/Packages/User ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
-success 'copied Sublime Text 2 preferences'
+success '\033[0;33mcopied\033[0m Alfred 2 preferences'
 
 echo ''
 

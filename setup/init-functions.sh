@@ -36,7 +36,8 @@ symlink () {
 
   for src in $(find -H "$sourceDir" -maxdepth 1 -name "$findFileName")
   do
-    dst="$destinationDir/$(basename "${src}")"
+    sourceBase="$(basename "${src}")"
+    dst="$destinationDir/$sourceBase"
 
     # Go to next if it is source directory
     if [ "$src" == "$sourceDir" ]; then
@@ -44,11 +45,11 @@ symlink () {
     fi
 
     # Make sure there is nothing in the destination
-    if [ -f "$dst" ]; then
+    if [ -d "$dst" ] || [ -h "$dst" ] || [ -f "$dst" ]; then
       rm -rf "$dst"
     fi
 
     ln -s "$src" "$dst"
-    success "linked $src to $dst"
+    success "\033[0;33mlinked\033[0m  $sourceBase \033[0;33m→\033[0m $dst"
   done
 }
