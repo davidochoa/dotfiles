@@ -18,8 +18,8 @@ setup/init
 - ```~/.extras```
 - ```~/.gitconfig.user```
 - ```~/Library/Fonts/``` (new fonts)
-- ```~/Library/Application\ Support/Alfred\ 2/Alfred.alfredpreferences```
 - ```~/Library/Preferences/``` (new or changes)
+- ```~/Library/Application\ Support/Alfred\ 2/Alfred.alfredpreferences```
 - ```/Library/Preferences/SystemConfiguration/SystemConfiguration``` (any necessary files)
 - ```/Library/Preferences/com.apple.TimeMachine.plist```
 - ```/usr/local/etc/nginx/nginx.conf```
