@@ -1,17 +1,24 @@
 #!/bin/bash
 
-# Aliases
+# apps
 alias subl="'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'"
 alias psql="'/Applications/Postgres.app/Contents/Versions/9.4/bin/psql'"
 
 alias projects="cd ~/Documents/Projects"
 
+# FTP
 alias start-ftp="sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist; sudo launchctl start com.apple.ftpd"
 alias stop-ftp="sudo launchctl stop com.apple.ftpd; sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist"
 
+# redis
+alias start-redis="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+alias stop-redis="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+
+# nginx
 alias start-nginx="sudo nginx"
 alias stop-nginx="sudo nginx -s stop"
 
+# rails
 alias rserver="rails server"
 alias rconsole="rails console"
 
@@ -23,8 +30,8 @@ alias rdbmigredo="rake db:migrate:redo"
 
 alias routes="rake routes"
 
-# Kill rails processes
-alias killall-rails="pgrep ruby bin/rails | xargs kill | echo '=> Rails'\'' processes killed.'"
+# Kill ruby processes
+alias killall-ruby="pgrep ruby bin/rails sidekiq | xargs kill | echo '=> Ruby processes killed.'"
 
 # Pipe my public key to my clipboard.
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
