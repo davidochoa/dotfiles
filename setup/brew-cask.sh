@@ -1,6 +1,8 @@
 #!/bin/bash
 
-info 'installing Applications for you.'
+# Commented out apps are preferred from website/app store
+
+info 'installing Applications for you'
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -20,21 +22,21 @@ brew cask install github-desktop
 # brew cask install iterm2
 brew cask install noizio
 brew cask install pgadmin3
-# brew cask install pixlr (just reference)
+# brew cask install pixlr (just for reference)
 # brew cask install postgres
 brew cask install postico
-# brew cask install psequel (just reference)
+# brew cask install psequel (just for reference)
 brew cask install rdm
 brew cask install screenhero
 brew cask install skitch
 brew cask install skype
 # brew cask install slack
-# brew cask install speak (just reference)
+# brew cask install speak (just for reference)
 brew cask install spectacle
 # brew cask install spotify
 # brew cask install sublime-text
 brew cask install teamviewer
-# brew cask install the-unarchiver (just reference)
+# brew cask install the-unarchiver (just for reference)
 # brew cask install toggldesktop
 brew cask install tunnelblick
 # brew cask install unity
@@ -44,9 +46,3 @@ brew cask install wkhtmltopdf
 
 # Alternate versions of Casks for homebrew-cask (beta, etc)
 # brew tap caskroom/versions
-
-# Apps without caskroom (to keep in mind).
-# - pastebox
-# - pocket
-# - Sketchbook (just reference)
-# - Split&Concat (just reference)
