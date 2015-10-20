@@ -36,6 +36,8 @@ fi
 ##
 
 
+##########################################
+### Bootstrap the system with homebrew ###
 source setup/brew.sh
 source setup/brew-cask.sh
 
@@ -49,9 +51,6 @@ symlink "$HOME" "$DOTFILES_ROOT" '.*'
 ### preferences
 symlink "$HOME/Library/Preferences" "$DOTFILES_ROOT/sys/user-preferences" '*'
 
-### Sublime Text 2
-symlink "$HOME/Library/Application\ Support/Sublime\ Text\ 2/Packages" "$DOTFILES_ROOT/application-support/Sublime\ Text\ 2/Packages" '*'
-
 
 ###############
 ### Copying ###
@@ -61,7 +60,7 @@ cp -a $DOTFILES_ROOT/fonts/* ~/Library/Fonts/
 success '\033[0;33mcopied\033[0m Fonts'
 
 ### zsh theme
-cp -a $DOTFILES_ROOT/zsh/themes/david-custom.zsh-theme ~/.oh-my-zsh/themes/david-custom.zsh-theme
+cp -a $DOTFILES_ROOT/zsh/themes/david-custom.zsh-theme ~/.oh-my-zsh/themes/
 success '\033[0;33mcopied\033[0m zsh theme'
 
 ### Applications
@@ -77,9 +76,21 @@ cp -a $DOTFILES_ROOT/sys/system-configurations/* /Library/Preferences/SystemConf
 success '\033[0;33mcopied\033[0m System Configurations'
 
 ### Alfred 2
-cp -a $DOTFILES_ROOT/sys/application-support/Alfred\ 2/Alfred.alfredpreferences ~/Library/Application\ Support/Alfred\ 2/Alfred.alfredpreferences
+cp -a $DOTFILES_ROOT/sys/application-support/Alfred\ 2/Alfred.alfredpreferences ~/Library/Application\ Support/Alfred\ 2/
 success '\033[0;33mcopied\033[0m Alfred 2 preferences'
 
+### Sublime Text 2
+cp -a $DOTFILES_ROOT/sys/application-support/Sublime\ Text\ 2/Packages/User ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/
+success '\033[0;33mcopied\033[0m Sublime Text 2 preferences'
+
+
+###########################
+### Set Dev environment ###
+source setup/dev.sh
+
+
+###################
+### Wrapping up ###
 echo ''
 
 success 'done.'
