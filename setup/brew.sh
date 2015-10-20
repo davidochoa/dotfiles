@@ -3,7 +3,7 @@
 # Make sure that we have a clean install of homebrew
 # Check for Homebrew
 if test ! $(which brew); then
-  info 'installing Homebrew for you.'
+  info 'installing Homebrew for you'
 
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
@@ -14,15 +14,26 @@ brew doctor
 # Make sure we’re using the latest Homebrew
 brew update
 
-brew install vim --override-system-vi
+# vim installed from setup/dev.sh as some dependencies are needed
+# brew install vim --env-std --override-system-vi
 brew install homebrew/dupes/grep
 brew install git-flow
 brew install tree
 brew install htop-osx
 brew install nginx
 brew install imagemagick
+brew install libffi
+brew install libyaml
 brew install node
+brew install openssl
+brew install python
+brew install rbenv
+brew install rbenv-binstubs
+brew install rbenv-gem-rehash
+brew install rbenv-gemset
+brew install rbenv-use
 brew install redis
+brew install ruby-build
 
 # Remove outdated versions from the cellar
 brew cleanup
