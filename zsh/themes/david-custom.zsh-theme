@@ -13,7 +13,7 @@ function rbenv_version_prompt_info() {
 function rbenv_gemset_prompt_info() {
   local ruby_gemset
   ruby_gemset=$(rbenv gemset active 2> /dev/null) || return ''
-  echo "@$ruby_gemset" | sed -e "s/ global$//" | head -n1
+  echo "@$ruby_gemset" | sed -e "s/ global$//"
 }
 
 RPS1='$(git_prompt_info)%{$fg[red]%}[$(rbenv_version_prompt_info)$(rbenv_gemset_prompt_info)]%{$reset_color%} %* $EPS1'
