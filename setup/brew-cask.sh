@@ -21,7 +21,7 @@ brew cask install github-desktop
 # brew cask install google-chrome
 # brew cask install iterm2
 brew cask install noizio
-brew cask install pgadmin3
+# brew cask install pgadmin3
 # brew cask install pixlr (just for reference)
 # brew cask install postgres
 brew cask install postico
