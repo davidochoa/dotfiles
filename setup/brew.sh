@@ -17,13 +17,13 @@ brew update
 # vim installed from setup/dev.sh as some dependencies are needed
 # brew install vim --env-std --override-system-vi
 brew install homebrew/dupes/grep
+brew install apple-gcc42
 brew install git-flow
-brew install tree
 brew install htop-osx
-brew install nginx
 brew install imagemagick
 brew install libffi
 brew install libyaml
+brew install nginx
 brew install node
 brew install openssl
 brew install python
@@ -34,6 +34,7 @@ brew install rbenv-gemset
 brew install rbenv-use
 brew install redis
 brew install ruby-build
+brew install tree
 
 # Remove outdated versions from the cellar
 brew cleanup
