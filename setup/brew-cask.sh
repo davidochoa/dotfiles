@@ -43,6 +43,7 @@ brew cask install tunnelblick
 brew cask install vlc
 brew cask install virtualbox
 brew cask install wkhtmltopdf
+brew cask install xquartz
 
 # Alternate versions of Casks for homebrew-cask (beta, etc)
 # brew tap caskroom/versions
