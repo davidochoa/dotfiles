@@ -18,6 +18,7 @@ brew update
 # brew install vim --env-std --override-system-vi
 brew install homebrew/dupes/grep
 brew install apple-gcc42
+brew install bfg
 brew install git-flow
 brew install htop-osx
 brew install imagemagick
