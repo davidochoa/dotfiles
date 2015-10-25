@@ -9,7 +9,7 @@ git clone https://github.com/davidochoa/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 git submodule init
 git submodule update
-setup/init
+setup/init.sh
 ```
 
 ### 2. What is worth re-installing?
