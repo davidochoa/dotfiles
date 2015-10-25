@@ -7,6 +7,8 @@ These dotfiles configure my shell, and help me get a new system up and running w
 ```
 git clone https://github.com/davidochoa/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
+git submodule init
+git submodule update
 setup/init
 ```
 
