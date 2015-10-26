@@ -36,6 +36,7 @@ brew install rbenv-use
 brew install redis
 brew install ruby-build
 brew install tree
+brew install v8
 
 # Remove outdated versions from the cellar
 brew cleanup
