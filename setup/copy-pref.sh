@@ -12,6 +12,10 @@ success '\033[0;33mcopied\033[0m zsh theme'
 cp -av $DOTFILES_ROOT/apps/ /Applications/
 success '\033[0;33mcopied\033[0m Applications'
 
+### Services
+cp -av $DOTFILES_ROOT/services/ $HOME/Library/Services/
+success '\033[0;33mcopied\033[0m Services'
+
 ### User Preferences
 cp -av $DOTFILES_ROOT/sys/user-preferences/ $HOME/Library/Preferences/
 success '\033[0;33mcopied\033[0m User Preferences'
