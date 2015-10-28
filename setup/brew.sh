@@ -22,6 +22,7 @@ brew install bfg
 brew install git-flow
 brew install htop-osx
 brew install imagemagick
+brew install jhead
 brew install libffi
 brew install libyaml
 brew install nginx
