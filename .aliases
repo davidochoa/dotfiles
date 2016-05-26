@@ -19,8 +19,12 @@ alias start-nginx="sudo nginx"
 alias stop-nginx="sudo nginx -s stop"
 
 # rails
-alias rserver="rails server"
-alias rconsole="rails console"
+# alias rserver="rails server"
+# alias rconsole="rails console"
+alias rserver="bin/rails server"
+alias rconsole="bin/rails console"
+alias rspec="bin/rspec"
+alias sidekiq="bundle exec sidekiq"
 
 alias rchecks="brakeman -c .brakeman.yml; rubocop; rspec"
 
@@ -28,7 +32,7 @@ alias rdbmig="rake db:migrate"
 alias rdbroll="rake db:rollback"
 alias rdbmigredo="rake db:migrate:redo"
 
-alias routes="rake routes"
+alias rroutes="rake routes"
 
 # Kill ruby processes
 alias killall-ruby="pgrep ruby bin/rails sidekiq | xargs kill | echo '=> Ruby processes killed.'"
