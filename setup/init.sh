@@ -39,7 +39,6 @@ fi
 ##########################################
 ### Bootstrap the system with homebrew ###
 source setup/brew.sh
-source setup/brew-cask.sh
 
 
 ##################
