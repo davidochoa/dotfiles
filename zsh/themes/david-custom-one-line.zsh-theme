@@ -16,5 +16,6 @@ function rbenv_gemset_prompt_info() {
   echo "@$ruby_gemset" | sed -e "s/ global$//"
 }
 
-PROMPT='%{$fg[cyan]%}# [%c] %{$fg[blue]%}% $(git_prompt_info)%{$fg[red]%}[$(rbenv_version_prompt_info)$(rbenv_gemset_prompt_info)]
-${ret_status}%{$reset_color%} '
+RPS1='$(git_prompt_info)%{$fg[red]%}[$(rbenv_version_prompt_info)$(rbenv_gemset_prompt_info)]%{$reset_color%} %* $EPS1'
+
+PROMPT='%{$fg[cyan]%}[%c]%{$fg[blue]%}% %{$reset_color%} ${ret_status}%{$reset_color%} '
