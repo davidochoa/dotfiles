@@ -1,37 +1,27 @@
-" Sets how many lines of history VIM has to remember
-set history=700
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
 
-set laststatus=2
-
-set colorcolumn=80
-
+" Basic configs
 set number
 set ruler
-syntax enable
+set history=50
+set laststatus=2
+set colorcolumn=80
 set nowrap
-set t_Co=256
-set background=dark
-colorscheme base16-ocean
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
+set hidden
+colorscheme onedark
+syntax on
 
-" Airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme='base16'
-let g:airline#extensions#hunks#enabled = 1
-let g:airline#extensions#hunks#non_zero_only = 1
-let g:airline#extensions#branch#enabled = 1
-
-function! AirlineInit()
-  call airline#parts#define_raw('linenr', '%l')
-  call airline#parts#define_accent('linenr', 'bold')
-  let g:airline_section_z = airline#section#create(['%3p%% ', 'linenr', ':%c '])
-endfunction
-autocmd VimEnter * call AirlineInit()
+" Turn off physical line wrapping
+set textwidth=0
+set wrapmargin=0
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
+
+" Mouse
+set mouse=a
 
 " Ignore case when searching
 set ignorecase
@@ -42,8 +32,28 @@ set smartcase
 " Highlight search results
 set hlsearch
 
-" Makes search act like search in modern browsers set incsearch
+" Makes search act like search in modern browsers
 set incsearch
+
+" Use spaces instead of tabs
+set expandtab
+
+" 1 tab == 2 spaces
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+
+" Auto indent
+set autoindent
+
+" Smart indent
+set smartindent
+
+" Lines to keep before and after cursor
+set scrolloff=10
+
+" Automatically refresh any unchanged files
+set autoread
 
 " No annoying sound on errors
 set errorbells
@@ -51,82 +61,186 @@ set visualbell
 set t_vb=
 set tm=500
 
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
-
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
+" Turn backup off, since most stuff is in git anyway...
 set nobackup
 set nowb
 set noswapfile
 
-" Use spaces instead of tabs
-set expandtab
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
 
-" Be smart when using tabs
-set smarttab
+" Faster Vim!
+"   Space is your Leader
+let mapleader = "\<Space>"
 
-" 1 tab == 4 spaces
-set shiftwidth=2
-set tabstop=2
+"   File saving
+nmap <Leader>w :w<CR>
 
-" Linebreak on 500 characters
-set lbr
-set tw=500
+"   File saving and closing buffer
+nmap <Leader>ww :w<CR>:bd<CR>
 
-set ai "Auto indent
-set si "Smart indent
+"   File saving and quitting vim
+nmap <Leader>w1 :wq<CR>
 
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
+"   Closing buffer
+nmap <Leader>q :bd<CR>
 
-" Delete trailing white space on save, useful for Python and Coffeescript
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
+"   Quit
+nmap <Leader>1 :q<CR>
 
-" Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-endif
+"   Hard-quit
+nmap <Leader>11 :q!<CR>
 
-imap <S-Tab> <Esc><<i
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-nnoremap <C-n> yyp
-nnoremap <C-w> :bd
+"   Switch to recent buffer
+nmap <Tab> :b#<CR>
 
-" Vundle
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" Let vundle manage itself
-Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-bundler'
-Plugin 'edkolev/promptline.vim'
-call vundle#end()
-filetype plugin indent on
-" Vundle end
+"   Find
+nmap <Leader>f /
+
+"   Undo (alternative)
+" nmap <Leader>z :u<CR>
+
+"   Redo
+nmap r <C-r>
+" nmap <Leader>r <C-r>
+
+"   Duplicate line
+nnoremap <Leader>d yy p
+
+"   Special paste (from clipoard, no indents)
+nmap <Leader>p "+p
+
+"   Copy from visual
+vmap <Leader>y "+y
+
+"   Jump to line
+nmap g gg
+vmap g gg
+
+"  Jump to beginning of line, for speed with swedish keyboard
+nmap ö ^
+vmap ö ^
+
+"  Jump to end of line, for speed with swedish keyboard
+nmap ä $
+vmap ä $
+
+"   Map § to :, for speed with swedish keyboard
+nnoremap § :
+vnoremap § :
+
+"   Map 1@a to 11 for faster play of recording
+nnoremap 11 1@a
+
+"   Remove all trailing whitespace, automagically
+autocmd BufWritePre * :%s/\s\+$//e
+
+call plug#begin('~/.vim/plugged')
+Plug 'itchyny/lightline.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-haml'
+Plug 'p0deje/vim-ruby-interpolation'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'airblade/vim-gitgutter'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tomtom/tcomment_vim'
+Plug 'godlygeek/tabular'
+Plug 'ervandew/supertab'
+Plug 'mhinz/vim-startify'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'rust-lang/rust.vim'
+
+" Plug 'rking/ag.vim'
+" Plug 'sjbach/lusty'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-scripts/AutoComplPop'
+" Plug 'Valloric/YouCompleteMe'
+" Plug 'Shougo/unite.vim'
+" Plug 'Shougo/vimproc.vim'
+" Plug 'danchoi/ri.vim'
+" Plug 'chriskempson/base16-vim'
+" Plug 'tpope/vim-bundler'
+" Plug 'terryma/vim-multiple-cursors'
+" Plug 'darfink/vim-plist'
+call plug#end()
+
+" Autocomplete
+" set completeopt=noinsert,menuone
+" autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+" autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+" autocmd FileType ruby,eruby let g:rubycomplete_include_objectspace = 1
+" autocmd FileType ruby,eruby let g:rubycomplete_include_object = 1
+" autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 " Multiple-cursors
-let g:multi_cursor_next_key='<C-d>'
+" let g:multi_cursor_next_key='<Leader>d'
+
+" Airline
+" let g:airline_theme = 'onedark'
+" let g:airline_powerline_fonts = 1
+" function! AirlineInit()
+"   call airline#parts#define_raw('linenr', '%l')
+"   call airline#parts#define_accent('linenr', 'bold')
+"   let g:airline_section_z = airline#section#create(['%3p%% ', 'linenr', ':%c '])
+" endfunction
+" autocmd VimEnter * call AirlineInit()
+
+" Unite
+" call unite#filters#matcher_default#use(['matcher_regexp'])
+" nnoremap <Leader>p :Unite file_rec/async<cr>
+" nnoremap <Leader>pp :Unite grep:.<cr>
+" nnoremap <Leader>t :Unite buffer<cr>
+" nnoremap <Leader>n :Unite file buffer<cr>
+
+" LustyExplorer
+" nmap <Leader>n :LustyFilesystemExplorer<CR>
 
 " CtrlP
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
-let g:ctrlp_map = '<C-p>'
+" let g:ctrlp_map = '<Leader>p'
+let g:ctrlp_map = '<Leader>n'
+let g:ctrlp_custom_ignore = 'tmp'
+nmap <Leader>t :CtrlPBuffer<CR>
 
-" Reload on vimrc save
-augroup reload_vimrc " {
-  autocmd!
-  autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }
+" Ag
+" nmap <Leader>ff :Ag<Space>
+
+" TComment
+nmap <Leader>2 :TComment<CR>
+vmap <Leader>2 :TComment<CR>
+
+" Fugitive
+nmap <Leader>gs :Gstatus<CR>
+nmap <Leader>gc :Gcommit<CR>
+nmap <Leader>gb :Gblame<CR>
+nmap <Leader>gl :Gpull<CR>
+nmap <Leader>gm :Gmove<Space>
+nmap <Leader>ga :Git add<Space>
+nmap <Leader>gg :Git<Space>
+
+" Tabularize
+nmap <Leader>a0 :Tabularize /^[^=]*\zs=<CR>
+vmap <Leader>a0 :Tabularize /^[^=]*\zs=<CR>
+nmap <Leader>a00 :Tabularize /=><CR>
+vmap <Leader>a00 :Tabularize /=><CR>
+nmap <Leader>a.. :Tabularize /:<CR>
+vmap <Leader>a.. :Tabularize /:<CR>
+nmap <Leader>a. :Tabularize /^[^:]*:<CR>
+vmap <Leader>a. :Tabularize /^[^:]*:<CR>
+
+" SuperTab
+function MyTagContext()
+  if filereadable(expand('%:p:h') . '/tags')
+    return "\<c-x>\<c-]>"
+  endif
+  " no return will result in the evaluation of the next
+  " configured context
+endfunction
+let g:SuperTabCompletionContexts=['MyTagContext', 's:ContextText', 's:ContextDiscover']
+
+"
+" Override highlighting colors
+hi Search cterm=NONE ctermfg=NONE ctermbg=white
