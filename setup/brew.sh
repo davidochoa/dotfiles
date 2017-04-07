@@ -18,10 +18,10 @@ brew update
 # brew install vim --env-std --override-system-vi
 brew install homebrew/dupes/grep
 brew install apple-gcc42
+brew install ctags
 brew install bfg
 brew install fzf
 brew install git-flow
-brew install imagemagick
 brew install htop
 brew install jhead
 brew install libffi
