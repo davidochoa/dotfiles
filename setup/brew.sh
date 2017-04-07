@@ -21,8 +21,8 @@ brew install apple-gcc42
 brew install bfg
 brew install fzf
 brew install git-flow
-brew install htop-osx
 brew install imagemagick
+brew install htop
 brew install jhead
 brew install libffi
 brew install libyaml
