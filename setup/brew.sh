@@ -19,6 +19,7 @@ brew update
 brew install homebrew/dupes/grep
 brew install apple-gcc42
 brew install bfg
+brew install fzf
 brew install git-flow
 brew install htop-osx
 brew install imagemagick
@@ -36,6 +37,7 @@ brew install rbenv-gemset
 brew install rbenv-use
 brew install redis
 brew install ruby-build
+brew install the_silver_searcher
 brew install tree
 brew install v8
 

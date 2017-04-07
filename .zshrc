@@ -56,3 +56,5 @@ for file in ~/.{extras,aliases,functions}; do
   [ -r "$file" ] && source "$file";
 done
 unset file
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

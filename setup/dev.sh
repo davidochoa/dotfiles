@@ -8,6 +8,9 @@ bundle install --binstubs .bundle/bin
 # Make sure that openssl is linked to /usr/local/bin
 brew link --force openssl
 
+# Install fzf shell extensions
+/usr/local/opt/fzf/install
+
 # Add redis plist to OSX LaunchAgents, reference: https://gist.github.com/tonypujals/9631143.
 ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
 
