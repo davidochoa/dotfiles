@@ -4,7 +4,8 @@
 alias subl="'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'"
 alias psql="'/Applications/Postgres.app/Contents/Versions/9.4/bin/psql'"
 
-alias projects="cd ~/Documents/Projects"
+# Encryption
+alias encrypt='gpg --armor --symmetric --cipher-algo AES256 '
 
 # FTP
 alias start-ftp="sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist; sudo launchctl start com.apple.ftpd"
