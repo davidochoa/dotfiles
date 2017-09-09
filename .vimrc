@@ -132,6 +132,9 @@ vnoremap § :
 "   Map 1@a to 11 for faster play of recording
 nnoremap 11 1@a
 
+"   Copy file-path
+nmap ,y :let @* = expand("%")<CR>
+
 "   Remove all trailing whitespace, automagically
 autocmd BufWritePre * :%s/\s\+$//e
 
