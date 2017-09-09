@@ -202,6 +202,16 @@ call plug#end()
 " LustyExplorer
 " nmap <Leader>n :LustyFilesystemExplorer<CR>
 
+" Lightline
+let g:lightline = {
+    \   'component_function': {
+    \     'filename': 'LightLineFilename'
+    \   }
+    \ }
+function! LightLineFilename()
+  return expand('%:.')
+endfunction
+
 " CtrlP
 " let g:ctrlp_map = '<Leader>p'
 let g:ctrlp_map = '<Leader>n'
