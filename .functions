@@ -1,5 +1,11 @@
 #!/bin/bash
 
+killall-ruby () {
+  kill -9 $(pgrep -u `whoami` -l | grep ruby | awk '{print $1}')
+
+  echo '=> Ruby processes killed.'
+}
+
 grh~ () { git reset HEAD~$1 }
 
 gfs () {

@@ -35,9 +35,6 @@ alias rdbmigredo="rake db:migrate:redo"
 
 alias rroutes="rake routes"
 
-# Kill ruby processes
-alias killall-ruby="kill -9 $(pgrep -u `whoami` -l | grep ruby | awk '{print $1}') | echo '=> Ruby processes killed.'"
-
 # Pipe my public key to my clipboard.
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
