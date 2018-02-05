@@ -1,3 +1,0 @@
-[submodule "sys"]
-	path = sys
-	url = git@bitbucket.org:davidochoa/dotfiles-preferences.git
