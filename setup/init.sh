@@ -47,11 +47,6 @@ source setup/symlink.sh
 
 
 ###########################
-### Copying preferences ###
-source setup/copy-pref.sh
-
-
-###########################
 ### Set Dev environment ###
 source setup/dev.sh
 
