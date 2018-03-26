@@ -14,7 +14,6 @@ brew doctor
 # Make sure we’re using the latest Homebrew
 brew update
 
-brew install ctags
 brew install bfg
 brew install fzf
 brew install git-flow
