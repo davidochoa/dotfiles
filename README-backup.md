@@ -2,7 +2,6 @@
 
 ### 1. What is worth re-installing?
 - ```brew leaves > brew-list.txt```
-- ```brew cask list > cask-list.txt```
 
 ### 2. What to remember when Backing-up?
 - ```~/.extras```
@@ -15,8 +14,6 @@
 - ```~/Library/Application\ Support/Alfred\ 3/Alfred.alfredpreferences```
 - ```~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User```
 - ```/Library/Preferences/SystemConfiguration/SystemConfiguration``` (any necessary files)
-- Env file from any project that you want to keep
-- DB dump from any project that you want to keep
 
 #### 2.1. Other useful parts (to not forget)
 - ```/usr/local/etc/nginx/nginx.conf```
