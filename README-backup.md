@@ -4,7 +4,7 @@
 - ```brew leaves > brew-list.txt```
 
 ### 2. What to remember when Backing-up?
-- ```~/.extras```
+- ```~/.profile```
 - ```~/.gitconfig.user```
 - ```~/.ssh``` (securely)
 - ```~/.ssl``` (securely)
