@@ -6,7 +6,7 @@ set number
 set ruler
 set history=50
 set laststatus=2
-set colorcolumn=80
+" set colorcolumn=80
 set nowrap
 set hidden
 colorscheme onedark
@@ -50,7 +50,7 @@ set autoindent
 set smartindent
 
 " Lines to keep before and after cursor
-set scrolloff=10
+" set scrolloff=10
 
 " Automatically refresh any unchanged files
 set autoread
@@ -117,20 +117,9 @@ vmap <Leader>y "+y
 nmap g gg
 vmap g gg
 
-"  Jump to beginning of line, for speed with swedish keyboard
-nmap ö ^
-vmap ö ^
-
-"  Jump to end of line, for speed with swedish keyboard
-nmap ä $
-vmap ä $
-
-"   Map § to :, for speed with swedish keyboard
+"   Map § to :
 nnoremap § :
 vnoremap § :
-
-"   Map 1@a to 11 for faster play of recording
-nnoremap 11 1@a
 
 "   Copy file-path
 nmap ,y :let @* = expand("%")<CR>
@@ -141,8 +130,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-haml'
 Plug 'p0deje/vim-ruby-interpolation'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
@@ -152,10 +139,18 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tomtom/tcomment_vim'
 Plug 'godlygeek/tabular'
+Plug 'junegunn/vim-easy-align'
 Plug 'ervandew/supertab'
 Plug 'mhinz/vim-startify'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+
+" Plug 'tpope/vim-rails'
+" Plug 'tpope/vim-haml'
+
+" Plug 'rust-lang/rust.vim'
 
 " Plug 'rking/ag.vim'
 " Plug 'sjbach/lusty'
@@ -253,6 +248,36 @@ function MyTagContext()
   " configured context
 endfunction
 let g:SuperTabCompletionContexts=['MyTagContext', 's:ContextText', 's:ContextDiscover']
+
+" vim-go
+let g:go_fmt_command = "goimports"
+let g:go_metalinter_autosave = 0
+let g:go_auto_type_info = 1
+
+"   Highlighting
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_auto_sameids = 1
+
+" NERDTree
+"   remap toggling
+nmap <Leader>bb :NERDTreeFind<CR>
+nmap <Leader>b :NERDTreeToggle<CR>
+vmap <Leader>b :NERDTreeToggle<CR>
+
+" Tagbar
+"   remap toggling
+nmap <Leader>v :TagbarToggle<CR>
+
+" Golang
+autocmd FileType go setlocal shiftwidth=7 tabstop=7 softtabstop=7 noexpandtab
 
 "
 " Override highlighting colors
