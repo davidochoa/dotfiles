@@ -14,25 +14,7 @@ brew doctor
 # Make sure we’re using the latest Homebrew
 brew update
 
-brew install bfg
-brew install fzf
-brew install git-flow
-brew install htop
-brew install jhead
-brew install libffi
-brew install libyaml
-brew install nginx
-brew install node
-brew install python
-brew install rbenv
-brew install rbenv-binstubs
-brew install rbenv-gemset
-brew install rbenv-use
-brew install redis
-brew install ruby-build
-brew install the_silver_searcher
-brew install tree
-brew install v8
+brew bundle install --file=../Brewfile
 
 # Remove outdated versions from the cellar
 brew cleanup
