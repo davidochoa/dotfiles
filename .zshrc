@@ -46,16 +46,24 @@ source $ZSH/oh-my-zsh.sh
 
 # export DYLD_LIBRARY_PATH=/etc/oracle/instantclient_11_2
 # export ORACLE_HOME=/etc/oracle/instantclient_11_2
-export PATH=/Applications/Postgres.app/Contents/Versions/9.4/bin:~/.dotfiles/bin:$PATH
+export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:~/.dotfiles/bin:$HOME/bin:$PATH
+export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH # needed for openssl / python
 
-#export rvmsudo_secure_path=1
+export LC_ALL=en_US.UTF-8
 
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export KUBECONFIG=$HOME/.kube/config:$KUBECONFIG
 
-for file in ~/.{extras,aliases,functions}; do
+# export rvmsudo_secure_path=1
+
+# export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+for file in ~/.{profile,aliases,functions}; do
   [ -r "$file" ] && source "$file";
 done
 
 unset file
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Move cursor to bottom of the screen
+tput cup $(tput lines) 0
