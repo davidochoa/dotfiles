@@ -42,14 +42,14 @@ fi
 source setup/brew.sh
 
 
-##################
-### Symlinking ###
-source setup/symlink.sh
-
-
 ###########################
 ### Set Dev environment ###
 source setup/dev.sh
+
+
+##################
+### Symlinking ###
+source setup/symlink.sh
 
 
 ###################
