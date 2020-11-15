@@ -1,42 +1,50 @@
 #!/bin/bash
 
 # apps
-alias subl="'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'"
-alias psql="'/Applications/Postgres.app/Contents/Versions/9.4/bin/psql'"
+# alias subl="'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'"
+# alias psql="'/Applications/Postgres.app/Contents/Versions/latest/bin/psql'"
 
 # Encryption
 alias encrypt='gpg --armor --symmetric --cipher-algo AES256 '
 
 # FTP
-alias start-ftp="sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist; sudo launchctl start com.apple.ftpd"
-alias stop-ftp="sudo launchctl stop com.apple.ftpd; sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist"
+alias ftp-start"sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist; sudo launchctl start com.apple.ftpd"
+alias ftp-stop="sudo launchctl stop com.apple.ftpd; sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist"
 
 # redis
-alias start-redis="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
-alias stop-redis="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+alias redis-start="launchctl load /usr/local/opt/redis/homebrew.mxcl.redis.plist"
+alias redis-stop="launchctl unload /usr/local/opt/redis/homebrew.mxcl.redis.plist"
 
 # nginx
-alias start-nginx="sudo nginx"
-alias stop-nginx="sudo nginx -s stop"
+alias nginx-start="sudo nginx"
+alias nginx-stop="sudo nginx -s stop"
 
-# rails
-# alias rserver="rails server"
-# alias rconsole="rails console"
-alias rserver="bin/rails server"
-alias rconsole="bin/rails console"
-alias rspec="bin/rspec"
-alias sidekiq="bundle exec sidekiq"
-
-alias rchecks="brakeman -c .brakeman.yml; rubocop; rspec"
-
-alias rdbmig="rake db:migrate"
-alias rdbroll="rake db:rollback"
-alias rdbmigredo="rake db:migrate:redo"
-
-alias rroutes="rake routes"
+# localstack
+alias localstack-start='SERVICES="sqs" $HOME/Library/Python/2.7/bin/localstack start >/dev/null 2>&1 &'
 
 # Pipe my public key to my clipboard.
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 # GIT
-alias gdc='gdca'
+alias git-branch-copy='git branch | fzf | sed -e "s/^*//"'
+alias gdc='git diff --cached'
+alias gbc='git-branch-copy | xargs echo -n | pbcopy'
+alias gbm='git branch -m'
+alias gbDD='git-branch-copy | xargs git branch -D'
+alias gcoo='git-branch-copy | xargs git checkout'
+
+# restart touch bar
+alias touch-bar-restart='pkill "Touch Bar agent"; killall "ControlStrip";'
+
+# rails
+# alias rroutes="rake routes"
+# alias rserver="rails server"
+# alias rconsole="rails console"
+# alias rserver="bin/rails server"
+# alias rconsole="bin/rails console"
+# alias rspec="bin/rspec"
+# alias sidekiq="bundle exec sidekiq"
+# alias rchecks="brakeman -c .brakeman.yml; rubocop; rspec"
+# alias rdbmig="rake db:migrate"
+# alias rdbroll="rake db:rollback"
+# alias rdbmigredo="rake db:migrate:redo"
