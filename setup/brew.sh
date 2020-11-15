@@ -16,7 +16,7 @@ brew doctor
 # Make sure we’re using the latest Homebrew
 brew update
 
-brew bundle install --file=../Brewfile
+brew bundle install --file=Brewfile
 
 # Remove outdated versions from the cellar
 brew cleanup
