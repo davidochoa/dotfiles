@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source setup/init-functions.sh
+
 info 'setting up dev environment for you'
 
 # Makes rbenv transparently aware of project-specific binstubs created by bundler.

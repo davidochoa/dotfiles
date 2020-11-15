@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source setup/init-functions.sh
+
 # Make sure that we have a clean install of homebrew
 # Check for Homebrew
 if test ! $(which brew); then
