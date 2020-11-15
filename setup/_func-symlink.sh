@@ -22,7 +22,7 @@ symlink () {
   sourceDir=$2
   findFileName=$3
 
-  for src in $(find -H "$sourceDir" -maxdepth 1 -name "$findFileName")
+  for src in $(find -H "$sourceDir" -maxdepth 1 -name "$findFileName" -not -name .DS_Store -not -name .git -not -name .gitignore)
   do
     sourceBase="$(basename "${src}")"
     dst="$destinationDir/$sourceBase"
