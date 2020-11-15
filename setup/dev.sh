@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source setup/init-functions.sh
+source setup/_func-print.sh
 
 info 'setting up dev environment for you'
 

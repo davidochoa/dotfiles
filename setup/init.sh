@@ -10,7 +10,8 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
 
-source setup/init-functions.sh
+source setup/_func-print.sh
+source setup/_func-symlink.sh
 
 ################################
 ### XCode Command Line Tools ###

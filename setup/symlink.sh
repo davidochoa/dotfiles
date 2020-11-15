@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source setup/init-functions.sh
+source setup/_func-symlink.sh
 
 ### root files
 symlink "$HOME" "$DOTFILES_ROOT" '.*'
