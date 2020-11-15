@@ -12,6 +12,7 @@ bundle install --binstubs .bundle/bin
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+cp zsh/themes/david-custom.zsh-theme ~/.oh-my-zsh/themes/david-custom.zsh-theme
 
 # Add redis plist to OSX LaunchAgents, reference: https://gist.github.com/tonypujals/9631143.
 ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
