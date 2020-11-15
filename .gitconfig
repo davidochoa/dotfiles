@@ -21,6 +21,8 @@
 	smudge = git-lfs smudge %f
 	required = true
 [commit]
-  gpgsign = true
+	gpgsign = true
 [include]
-  path = .gitconfig.user
+	path = .gitconfig.user
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
