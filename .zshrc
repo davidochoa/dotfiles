@@ -40,13 +40,13 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git awsprofile zsh-autosuggestions zsh-interactive-cd)
 
 source $ZSH/oh-my-zsh.sh
 
 # export DYLD_LIBRARY_PATH=/etc/oracle/instantclient_11_2
 # export ORACLE_HOME=/etc/oracle/instantclient_11_2
-export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:~/.dotfiles/bin:$HOME/bin:$PATH
+export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:~/.dotfiles/bin:$HOME/.local/bin:$HOME/bin:$PATH # .local/bin needed for k9s
 export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH # needed for openssl / python
 
 export LC_ALL=en_US.UTF-8
@@ -67,3 +67,7 @@ unset file
 
 # Move cursor to bottom of the screen
 tput cup $(tput lines) 0
+
+# Remap § to `
+# hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000064,"HIDKeyboardModifierMappingDst":0x700000035}]}'
+
